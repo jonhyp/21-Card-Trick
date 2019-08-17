@@ -1,0 +1,56 @@
+.game
+{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.game button
+{
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  align-self: center;
+  width: 100%;
+  max-width:200px;
+  margin-left: 500px;
+  cursor: pointer;
+}
+
+.game button:hover
+{
+    background-color: rgb(246, 84, 26);
+    color: white;
+}
+
+#baralho img
+{
+    max-width:400px;
+    max-height:300px;
+    width: auto;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.cards-list 
+{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cards-list div img
+{
+    max-width:300px;
+    max-height:250px;
+    width: auto;
+    height: auto;
+}

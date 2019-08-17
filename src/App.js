@@ -1,6 +1,5 @@
 import React from 'react';
-import Main from './pages/main/index';
-import Table from './pages/table/index';
+import Main from './pages/main/Main';
 import './App.css';
 
 

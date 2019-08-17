@@ -3,32 +3,39 @@ import React from 'react'
 
 export default class ArrangedCards extends React.Component
 {
-    constructor(props)
-    {
-        super(props)
-        
-    }
     render()
     {
+        console.log(this.props.cards)
        return(
             <div>
-                <div>
+                <div onClick={() => { this.props.onClick(0)} }>
                     <ul>
-                        {this.props.cards.map() => }
+                        {this.props.cards[0].map(card => 
+                        (
+                            <li key= {card.code}>
+                                <img src={card.image} alt=''/>
+                            </li>
+                        ))}
                     </ul>
                 </div>
-                <div>
+                <div onClick={() => { this.props.onClick(1)} }>
                     <ul>
-                        <li>
-                            <img src={this.props.cards[].image}/>
-                        </li>
+                        {this.props.cards[1].map(card => 
+                        (
+                            <li key= {card.code}>
+                                <img src={card.image} alt=''/>
+                            </li>
+                        ))}
                     </ul>
                 </div>
-                <div>
+                <div onClick={() => { this.props.onClick(2)} }>
                     <ul>
-                        <li>
-                            <img src={this.props.cards[].image}/>
-                        </li>
+                        {this.props.cards[2].map(card => 
+                        (
+                            <li key= {card.code}>
+                                <img src={card.image} alt=''/>
+                            </li>
+                        ))}
                     </ul>
                 </div>
             </div>

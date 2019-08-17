@@ -1,38 +1,53 @@
 import React from 'react'
+import './ArrangedCards.css'
 
 
 export default class ArrangedCards extends React.Component
 {
     render()
     {
-        console.log(this.props.cards)
        return(
-            <div>
-                <div onClick={() => { this.props.onClick(0)} }>
+            <div className="ArrangedCards">
+                <div className='card-stack' onClick={() => { this.props.onClick(0)} }>
                     <ul>
                         {this.props.cards[0].map(card => 
                         (
-                            <li key= {card.code}>
+                            card === this.props.cards[0][0] ?
+                            <li className='firs-card' key={card.code}>
+                                <img src={card.image} alt=''/>
+                            </li>
+                            :
+                            <li className='others-card' key={card.code}>
                                 <img src={card.image} alt=''/>
                             </li>
                         ))}
                     </ul>
                 </div>
-                <div onClick={() => { this.props.onClick(1)} }>
+                <div className='card-stack' onClick={() => { this.props.onClick(1)} }>
                     <ul>
                         {this.props.cards[1].map(card => 
                         (
-                            <li key= {card.code}>
+                            card === this.props.cards[1][0] ?
+                            <li className='firs-card' key={card.code}>
+                                <img src={card.image} alt=''/>
+                            </li>
+                            :
+                            <li className='others-card' key={card.code}>
                                 <img src={card.image} alt=''/>
                             </li>
                         ))}
                     </ul>
                 </div>
-                <div onClick={() => { this.props.onClick(2)} }>
+                <div className='card-stack' onClick={() => { this.props.onClick(2)} }>
                     <ul>
                         {this.props.cards[2].map(card => 
                         (
-                            <li key= {card.code}>
+                            card === this.props.cards[2][0] ?
+                            <li className='firs-card' key={card.code}>
+                                <img src={card.image} alt=''/>
+                            </li>
+                            :
+                            <li className='others-card' key={card.code}>
                                 <img src={card.image} alt=''/>
                             </li>
                         ))}

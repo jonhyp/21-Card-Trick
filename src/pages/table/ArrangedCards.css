@@ -1,0 +1,36 @@
+.ArrangedCards 
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 50px;
+    
+}
+
+.card-stack ul 
+{
+    list-style-type: none;
+}
+
+.card-stack
+{
+    margin: 0 auto;
+}
+
+
+.others-card
+{
+    margin-top: -190px;
+}
+
+.ArrangedCards div
+{
+    cursor: pointer;
+}
+
+.ArrangedCards div:hover
+{
+    transform: translateY(-20px);
+    transition: transform .3s;
+}
+
+/*className='card-stack'*/

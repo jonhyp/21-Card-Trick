@@ -98,6 +98,7 @@ export default class Main extends React.Component
             this.setState({ cards: tempCards, round: this.state.round + 1 })
         }
     }
+    
 
     render() 
     {
@@ -106,16 +107,28 @@ export default class Main extends React.Component
         return (
             // <h1>Contagem de cartas: {this.state.initialCards.length}</h1>
             <div className='game'>
-                <div id='baralho'>
-                    <img src = 'https://cdn.pixabay.com/photo/2012/05/07/18/53/card-game-48983_960_720.png' alt = '' />
-                </div>
-                <button type="button" onClick={() => { this.rearrangedCards(1) }}>Start</button>
+                {
+                this.state.round === 0 ?
+                    <>
+                    <div className="pick-a-card">
+                        <h1> Pick a card with your eyes!!</h1>
+                    </div>
+                    <button type="button" onClick={() => { this.rearrangedCards(1) }}>Start</button>
+                    </>
+                    :
+                    this.state.round <=3 ?
+                    <div className="pick-a-card">
+                        <h1>Pick the stack of your card!!</h1>
+                    </div>
+                    :
+                    <div className="pick-a-card">
+                        <h1>This is your card!!</h1>
+                    </div>
+                }
                 <div className='cards-list'>
                 {this.state.round === 0 ? 
                     initialCards.map(initialCards => (
-                        <div key = {initialCards.code}>
-                            <img src = {initialCards.image} alt = '' />
-                        </div>
+                        <img key = {initialCards.code} src = {initialCards.image} alt = '' />
                     ))
                     :
                     <Table cards={this.state.cards} round={this.state.round} onClick={this.onClick} />

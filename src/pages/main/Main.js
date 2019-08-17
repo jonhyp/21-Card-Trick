@@ -31,7 +31,7 @@ export default class Main extends React.Component
 
     rearrangedCards(index)
     {
-        if(this.state.round <= 1)
+        if(this.state.round === 0)
         {
             //Começo
             let count = 0
@@ -44,31 +44,12 @@ export default class Main extends React.Component
                     count = 0
                 else
                     count++
-                /*
-                if(count == 0)
-                {
-                    //Primeiro baralho
-                    tempCards[0].push(this.state.initialCards[i])
-                    count++
-                }
-                if(count == 1)
-                {
-                    //Segundo baralho
-                    tempCards[1].push(this.state.initialCards[i])
-                    count++
-                }
-                if(count == 2)
-                {
-                    //Terceiro baralho
-                    tempCards[2].push(this.state.initialCards[i])
-                    count = 0
-                } */
             }
             this.setState({ cards: tempCards, round: this.state.round + 1 })
         }
         else if(this.state.round < 4)
         {
-            let tempCards = [[],[],[]]
+            let arrangeCardsPuttingIndexInTheMiddle = [[],[],[]]
             //Juntar os 3 baralhos em 1 só colocando o baralho index no meio
             let passouBaralhoNaoIndexEscolhido = false
             for(let i = 0; i < 3; i++)
@@ -77,7 +58,7 @@ export default class Main extends React.Component
                 {
                     for(let cardIndex = 6; cardIndex >= 0; cardIndex--)
                     {
-                        tempCards[1].push(this.state.cards[index][cardIndex])
+                        arrangeCardsPuttingIndexInTheMiddle[1].push(this.state.cards[index][cardIndex])
                     }
                 }
                 if(i !== index)
@@ -87,59 +68,34 @@ export default class Main extends React.Component
                         passouBaralhoNaoIndexEscolhido = true
                         for(let cardIndex = 6; cardIndex >= 0; cardIndex--)
                         {
-                            tempCards[0].push(this.state.cards[i][cardIndex])
+                            arrangeCardsPuttingIndexInTheMiddle[0].push(this.state.cards[i][cardIndex])
                         }
                     }
                     else
                     {
                         for(let cardIndex = 6; cardIndex >= 0; cardIndex--)
                         {
-                            tempCards[2].push(this.state.cards[i][cardIndex])
+                            arrangeCardsPuttingIndexInTheMiddle[2].push(this.state.cards[i][cardIndex])
                         }
                     }
                 }
             }
 
+            arrangeCardsPuttingIndexInTheMiddle = arrangeCardsPuttingIndexInTheMiddle.flat()
             let count = 0
-            let tempCards2 = [[], [], []]
-            let tempCards3 = []
+            let tempCards = [[], [], []]
 
-            for(let i = 0; i < 3; i++)
-            {
-                for(let j = 0; j < 7; j++)
-                    tempCards3[(i * j) + j] = tempCards2[i][j]
-            }
-            
             for(let i = 20; i >= 0; i--)
             {
-                tempCards2[i / 7][i].push(tempCards3[i])
+                tempCards[count].push(arrangeCardsPuttingIndexInTheMiddle[i])
 
                 if(count === 2)
                     count = 0
                 else
                     count++
-                /*
-                if(count == 0)
-                {
-                    //Primeiro baralho
-                    tempCards[0].push(this.state.initialCards[i])
-                    count++
-                }
-                if(count == 1)
-                {
-                    //Segundo baralho
-                    tempCards[1].push(this.state.initialCards[i])
-                    count++
-                }
-                if(count == 2)
-                {
-                    //Terceiro baralho
-                    tempCards[2].push(this.state.initialCards[i])
-                    count = 0
-                } */
             }
 
-            this.setState({ cards: tempCards2, round: this.state.round + 1 })
+            this.setState({ cards: tempCards, round: this.state.round + 1 })
         }
     }
 
@@ -153,7 +109,7 @@ export default class Main extends React.Component
                 <div id='baralho'>
                     <img src = 'https://cdn.pixabay.com/photo/2012/05/07/18/53/card-game-48983_960_720.png' alt = '' />
                 </div>
-                <button type="button" onClick={() => { this.rearrangedCards(1);this.setState({ round: this.state.round + 1 }) }}>Start</button>
+                <button type="button" onClick={() => { this.rearrangedCards(1) }}>Start</button>
                 <div className='cards-list'>
                 {this.state.round === 0 ? 
                     initialCards.map(initialCards => (

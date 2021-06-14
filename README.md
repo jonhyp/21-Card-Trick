@@ -34,7 +34,7 @@ The following technologies were used in the project.:
 
 - [React](https://pt-br.reactjs.org/)
 - [Api to deal with playing cards](https://deckofcardsapi.com/)
-- -[Axios](https://www.npmjs.com/package/axios)
+- [Axios](https://www.npmjs.com/package/axios)
 
 
 ```

@@ -14,7 +14,7 @@ This application was made for study and personal enjoyment. When running the pro
 
 ```bash
 # clone this repository
-$ git clone <https://github.com/jonhyp/21-Card-Trick>
+$ git clone https://github.com/jonhyp/21-Card-Trick
 
 # Go to the project folder in the terminal/cmd
 $ cd 21-Card-Trick/
